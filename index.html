@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nauka jazdy na rolkach w Krakowie - Rollersi</title>
+<meta name="description" content="Rollersi - nauka jazdy na rolkach w Krakowie. Kursy od zera, zajęcia grupowe na 5 poziomach, nauka indywidualna, obozy rolkowe dla dorosłych i półkolonie dla dzieci.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#E01820">
+<link rel="icon" href="img/ikona-32.png" sizes="32x32">
+<link rel="icon" href="img/ikona-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="img/ikona-180.png">
+<link rel="preload" href="fonts/saira-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/saira-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" media="(max-width:700px)" imagesrcset="img/hero-m-480.webp 480w, img/hero-m-720.webp 720w, img/hero-m-960.webp 960w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" media="(min-width:701px)" imagesrcset="img/hero-d-960.webp 960w, img/hero-d-1440.webp 1440w, img/hero-d-2000.webp 2000w" imagesizes="100vw" fetchpriority="high">
+<style>
+@font-face{font-family:"Saira";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/saira-400.woff2) format("woff2")}
+@font-face{font-family:"Saira";font-weight:600;font-style:normal;font-display:swap;src:url(fonts/saira-600.woff2) format("woff2")}
+@font-face{font-family:"Saira Head";font-weight:700;font-style:normal;font-display:swap;src:url(fonts/saira-700.woff2) format("woff2")}
+:root{--red:#E01820;--red-d:#B5121A;--ink:#111317;--ink2:#3A3F47;--grey:#EEF1F4;--line:#D9DEE4;--blue:#204088;--w:1320px;--g:clamp(16px,4vw,48px);--sh:-6px 6px 0 var(--ink)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:#fff;color:var(--ink);font:400 17px/1.6 "Saira",system-ui,sans-serif;-webkit-text-size-adjust:100%;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:"Saira Head","Saira",system-ui,sans-serif;font-weight:700;line-height:1.08;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(32px,4.4vw,56px)}
+h3{font-size:clamp(22px,2vw,26px)}
+p{margin:0 0 1em}
+.wrap{width:100%;max-width:var(--w);margin:0 auto;padding:0 var(--g)}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:100}.skip:focus{left:8px}
+/* przycisk = litera z logo: czerwien + twardy czarny cien w lewo w dol */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--red);color:#fff;text-decoration:none;font:600 18px/1 "Saira",sans-serif;padding:17px 26px;border:0;border-radius:3px;box-shadow:var(--sh);cursor:pointer;transition:transform .15s ease-out,box-shadow .15s ease-out}
+.btn:hover{transform:translate(-2px,2px);box-shadow:-4px 4px 0 var(--ink)}
+.btn:active{transform:translate(-6px,6px);box-shadow:0 0 0 var(--ink)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+/* kolka z logo */
+.kolko{width:14px;height:14px;border-radius:50%;background:var(--red);box-shadow:-2px 2px 0 var(--ink);position:relative;flex:none}
+.kolko::after{content:"";position:absolute;inset:4.5px;border-radius:50%;background:var(--ink)}
+.kolko.pusty{background:#fff;border:2px solid #B8C0CA;box-shadow:none}.kolko.pusty::after{background:#B8C0CA;inset:3px}
+.rama{display:flex;gap:6px;align-items:center}
+/* naglowek */
+.top{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:20px;max-width:none}
+.logo img{height:44px;width:auto}
+.menu{display:flex;align-items:center;gap:clamp(14px,2vw,30px)}
+.menu a{text-decoration:none;font-weight:600;font-size:16px}
+.menu a:not(.btn):hover{color:var(--red)}
+.menu a.on{color:var(--red)}
+.menu .tel{font-weight:400;color:var(--ink2)}
+.menu .btn{padding:12px 18px;font-size:16px;box-shadow:-4px 4px 0 var(--ink)}
+.burger{display:none;background:none;border:0;width:46px;height:46px;padding:11px;cursor:pointer}
+.burger span{display:block;height:3px;background:var(--ink);margin:5px 0;border-radius:1px;transition:transform .2s,opacity .2s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+@media (max-width:1060px){
+ .burger{display:block}
+ .menu{position:fixed;top:64px;left:0;right:0;bottom:0;background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:12px var(--g) 32px;transform:translateX(100%);transition:transform .25s ease-out;visibility:hidden;overflow:auto}
+ .menu.open{transform:none;visibility:visible}
+ .menu a{font-size:24px;padding:14px 0;border-bottom:1px solid var(--line)}
+ .menu .tel{font-size:20px}
+ .menu .btn{margin-top:24px;font-size:19px;padding:18px;border-bottom:0}
+}
+/* hero */
+.hero{position:relative;min-height:calc(100svh - 64px);display:flex;color:#fff;overflow:hidden;background:#8a9097}
+.hero picture,.hero picture img{position:absolute;inset:0;width:100%;height:100%}
+.hero picture img{object-fit:cover;object-position:62% 40%}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,12,16,.72) 0%,rgba(10,12,16,.45) 42%,rgba(10,12,16,0) 68%),linear-gradient(0deg,rgba(10,12,16,.55) 0%,rgba(10,12,16,0) 45%);z-index:1}
+.hero .wrap{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding-top:48px;padding-bottom:clamp(72px,10vh,120px);max-width:none;padding-left:clamp(16px,6vw,110px)}
+.hero h1{font-size:clamp(40px,5.6vw,88px);max-width:12.5em;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.hero h1 span{display:block}
+.hero .lead{font-size:clamp(18px,1.5vw,22px);max-width:34em;margin:22px 0 0}
+.hero .akcja{display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px;margin-top:34px}
+.hero .gdzie{font-size:16px;opacity:.92}
+.hero .kick{position:absolute;left:0;right:0;bottom:-1px;height:56px;z-index:3;background:#fff;clip-path:polygon(0 100%,100% 18%,100% 100%)}
+.hero .slad{position:absolute;right:clamp(16px,6vw,110px);bottom:40px;z-index:4;transform:rotate(-2deg) scale(1.5);transform-origin:right bottom}
+@media (max-width:700px){
+ .hero{min-height:calc(100svh - 64px)}
+ .hero picture img{object-position:45% 50%}
+ .hero::before{background:linear-gradient(180deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.82) 30%,rgba(255,255,255,0) 50%),linear-gradient(0deg,rgba(10,12,16,.5) 0%,rgba(10,12,16,0) 26%)}
+ .hero .wrap{justify-content:space-between;padding:26px var(--g) 64px;color:var(--ink)}
+ .hero h1{font-size:clamp(34px,9.6vw,44px);text-shadow:none}
+ .hero .lead{font-size:17px;margin-top:14px;color:var(--ink2)}
+ .hero .akcja{margin-top:28px;color:#fff}
+ .hero .btn{width:100%}
+ .hero .gdzie{display:none}
+ .hero .kick{height:34px}
+ .hero .slad{display:none}
+}
+@media (max-width:700px) and (max-height:700px){.hero h1{font-size:32px}.hero .lead{font-size:16px}}
+/* sekcje */
+section{padding:clamp(64px,8vw,120px) 0}
+.szara{background:var(--grey)}
+.intro{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,6vw,96px);align-items:center}
+.intro .txt>p{font-size:19px;color:var(--ink2);max-width:36em}
+.intro h2{margin-bottom:24px}
+.trzy{margin:36px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.trzy li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.trzy b{font-family:"Saira Head";font-size:19px}
+.trzy span{color:var(--ink2)}
+.ramka{position:relative}
+.ramka img{width:100%;border-radius:3px;box-shadow:-12px 12px 0 var(--ink)}
+.ramka .rama{position:absolute;right:18px;bottom:-30px}
+.intro .ramka{max-width:520px;justify-self:end;width:100%}
+@media (max-width:860px){.intro{grid-template-columns:1fr}.intro .ramka{justify-self:start;max-width:440px;margin-left:12px}.trzy li{grid-template-columns:1fr;gap:2px}}
+/* poziomy */
+.glowa{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.glowa p{max-width:34em;color:var(--ink2);margin:14px 0 0;font-size:18px}
+.strz{display:flex;gap:12px}
+.strz button{width:52px;height:52px;border-radius:3px;border:2px solid var(--ink);background:#fff;cursor:pointer;font:600 22px/1 "Saira";color:var(--ink)}
+.strz button:hover{background:var(--ink);color:#fff}
+.tor{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(290px,1fr);gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 2px 22px 8px;scrollbar-width:thin;cursor:grab;overscroll-behavior-x:contain}
+.tor.drag{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.tor>*{scroll-snap-align:start}
+.poz{background:#fff;border:2px solid var(--ink);border-radius:3px;padding:26px 24px 24px;display:flex;flex-direction:column;box-shadow:-6px 6px 0 var(--ink)}
+.poz .rama{margin-bottom:22px}
+.poz .kod{font-size:15px;color:var(--ink2);font-weight:600}
+.poz h3{margin:4px 0 6px}
+.poz .lv{display:inline-block;align-self:flex-start;font-size:14px;font-weight:600;color:#fff;background:var(--ink);padding:3px 10px;border-radius:2px;margin-bottom:16px}
+.poz .lv.kurs{background:var(--red)}
+.poz ul{margin:0;padding:0 0 0 18px;color:var(--ink2);font-size:16px}
+.poz li{margin:0 0 6px}
+.poz .q{font-size:15px;font-weight:600;margin:0 0 8px;color:var(--ink)}
+.poz.zero{background:var(--red);color:#fff;border-color:var(--red)}
+.poz.zero .kod,.poz.zero ul,.poz.zero .q{color:#fff}
+.poz.zero p{font-size:17px}
+.poz.zero .btn{background:#fff;color:var(--ink);margin-top:auto;align-self:flex-start}
+@media (min-width:1500px){#tor-poz{grid-auto-columns:minmax(0,1fr);overflow:visible;cursor:default}#poziomy .strz{display:none}}
+/* mocna sekcja */
+.zajawka{background:var(--red);color:#fff;position:relative;overflow:hidden}
+.zajawka .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,6vw,96px);align-items:center}
+.zajawka h2{margin-bottom:22px}
+.zajawka p{font-size:19px;max-width:32em}
+.zajawka .wizja{margin-top:34px;padding-top:26px;border-top:2px solid rgba(255,255,255,.5);font-family:"Saira Head";font-size:clamp(24px,2.4vw,32px);line-height:1.2;max-width:20em}
+.zajawka .wizja small{display:block;font:400 16px/1.5 "Saira";margin-top:8px;opacity:.95}
+.zajawka .foto img{width:100%;border-radius:3px;box-shadow:-14px 14px 0 var(--ink)}
+@media (max-width:860px){.zajawka .wrap{grid-template-columns:1fr}.zajawka .foto{margin-left:14px}}
+/* oferta */
+.oferta{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,96px);align-items:start}
+.oferta .lista{list-style:none;margin:30px 0 0;padding:0;border-top:2px solid var(--ink)}
+.oferta .lista li{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line)}
+.oferta .lista .kolko{transform:translateY(2px)}
+.oferta .lista b{font-family:"Saira Head";font-size:clamp(20px,1.8vw,24px);display:block;line-height:1.2}
+.oferta .lista span{color:var(--ink2);font-size:16px}
+.kolaz{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.kolaz img{width:100%;height:100%;object-fit:cover;border-radius:3px}
+.kolaz .a{grid-column:1/3;aspect-ratio:16/9}
+.kolaz .b,.kolaz .c{aspect-ratio:1}
+.oferta .info{margin-top:28px;color:var(--ink2);font-size:16px}
+@media (max-width:860px){.oferta{grid-template-columns:1fr}.kolaz{order:-1}}
+/* instruktorzy */
+.instr{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(28px,4vw,64px);margin-top:12px}
+.os{display:grid;grid-template-columns:minmax(150px,240px) 1fr;gap:28px;align-items:start}
+.os img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:3px;box-shadow:-8px 8px 0 var(--ink)}
+.os h3{margin-bottom:4px}
+.os .rola{color:var(--red);font-weight:600;margin-bottom:14px;font-size:16px}
+.os p{color:var(--ink2);font-size:16px}
+@media (max-width:1100px){.instr{grid-template-columns:1fr}}
+@media (max-width:560px){.os{grid-template-columns:1fr;gap:20px}.os img{max-width:200px;margin-left:8px}}
+.stopka .wylinka-badge{white-space:nowrap}
+@media (max-width:700px){.strz{display:none}}
+/* galeria */
+.gal{grid-auto-columns:clamp(240px,28vw,420px);padding-left:var(--g);padding-right:var(--g);scroll-padding-left:var(--g)}
+.gal button{padding:0;border:0;background:none;cursor:zoom-in;display:block;border-radius:3px;overflow:hidden}
+.gal img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .3s ease-out;pointer-events:none}
+.gal button:hover img{transform:scale(1.03)}
+.galwrap{max-width:var(--w);margin:0 auto}
+dialog{border:0;padding:0;background:transparent;max-width:min(94vw,1200px);max-height:92vh}
+dialog::backdrop{background:rgba(10,12,16,.88)}
+dialog img{max-height:86vh;width:auto;margin:0 auto;border-radius:3px}
+dialog form{text-align:right}
+dialog .x{background:#fff;border:0;font:600 16px "Saira";padding:10px 16px;margin-bottom:10px;cursor:pointer;border-radius:3px}
+/* zapisy */
+.zapisy{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,6vw,96px);align-items:start}
+.zapisy .kont{list-style:none;padding:0;margin:28px 0 0}
+.zapisy .kont li{padding:14px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:center}
+.zapisy .kont a{font-weight:600;font-size:19px;text-decoration:none}
+.zapisy .kont a:hover{color:var(--red)}
+.zapisy .kont small{display:block;color:var(--ink2);font-size:14px}
+.form{background:#fff;border:2px solid var(--ink);border-radius:3px;padding:clamp(22px,3vw,40px);box-shadow:-10px 10px 0 var(--ink)}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form label{display:block;font-weight:600;font-size:15px;margin:0 0 6px}
+.form .f{margin-bottom:18px}
+.form input,.form select,.form textarea{width:100%;font:400 17px "Saira",sans-serif;padding:13px 14px;border:2px solid #9AA3AE;border-radius:3px;background:#fff;color:var(--ink)}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--ink)}
+.form textarea{min-height:110px;resize:vertical}
+.form .zgoda{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink2);margin:4px 0 22px}
+.form .zgoda input{width:20px;height:20px;flex:none;margin-top:2px}
+.form .ok{margin:16px 0 0;font-weight:600;color:var(--ink)}
+@media (max-width:860px){.zapisy{grid-template-columns:1fr}}
+@media (max-width:520px){.form .row{grid-template-columns:1fr;gap:0}}
+/* stopka */
+.stopka{background:var(--ink);color:#C9CED6;padding:56px 0 28px;font-size:15px}
+.stopka .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.stopka b{color:#fff;display:block;margin-bottom:10px;font-size:16px}
+.stopka a{text-decoration:none}.stopka a:hover{color:#fff;text-decoration:underline}
+.stopka ul{list-style:none;margin:0;padding:0}.stopka li{margin:0 0 6px}
+.stopka .logo-s{background:#fff;display:inline-block;padding:10px 14px;border-radius:3px;margin-bottom:16px}
+.stopka .logo-s img{height:40px;width:auto}
+.stopka .dol{grid-column:1/-1;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid #2C3038;padding-top:22px;margin-top:8px}
+@media (max-width:900px){.stopka .wrap{grid-template-columns:1fr 1fr}.stopka .pierw{grid-column:1/-1}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+<style>
+.wylinka-badge{display:inline-flex;align-items:center;gap:.4em;color:inherit;text-decoration:none;font-size:.875em;line-height:1;opacity:.85}
+.wylinka-badge:hover,.wylinka-badge:focus-visible{opacity:1}
+.wylinka-badge:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:2px}
+.wylinka-badge svg{width:18px;height:18px;flex:none;overflow:visible}
+.wylinka-badge b{font-weight:600}
+.wylinka-badge .wy-old{opacity:.45;transform-origin:40px 30px;transition:transform .32s cubic-bezier(.3,.7,.4,1),opacity .32s ease-out}
+.wylinka-badge .wy-pod{opacity:0;transition:opacity .2s ease-out .08s}
+.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:translate(9px,7px) rotate(9deg);opacity:0}
+.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:1}
+@media (prefers-reduced-motion:reduce){.wylinka-badge .wy-old,.wylinka-badge .wy-pod{transition:none}.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:none;opacity:.45}.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:0}}
+</style>
+</head>
+<body>
+<a class="skip" href="#tresc">Przejdź do treści</a>
+<header class="top">
+ <div class="wrap">
+  <a class="logo" href="#" aria-label="Rollersi - strona główna"><img src="img/logo-112.webp" srcset="img/logo-56.webp 1x, img/logo-112.webp 2x" width="164" height="44" alt="Rollersi"></a>
+  <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  <nav class="menu" id="menu" aria-label="Menu główne">
+   <a href="#" class="on" aria-current="page">Start</a>
+   <a href="#onas">O nas</a>
+   <a href="#poziomy">Poziomy grup</a>
+   <a href="#oferta">Zajęcia</a>
+   <a href="#instruktorzy">Instruktorzy</a>
+   <a href="#zapisy">Kontakt</a>
+   <a class="tel" href="tel:+48888999506">888 999 506</a>
+   <a class="btn" href="#zapisy">Zapisz się</a>
+  </nav>
+ </div>
+</header>
+
+<main id="tresc">
+<section class="hero" style="padding:0">
+ <picture>
+  <source media="(max-width:700px)" srcset="img/hero-m-480.webp 480w, img/hero-m-720.webp 720w, img/hero-m-960.webp 960w" sizes="100vw" width="960" height="1440">
+  <img src="img/hero-d-1440.webp" srcset="img/hero-d-960.webp 960w, img/hero-d-1440.webp 1440w, img/hero-d-2000.webp 2000w" sizes="100vw" width="2000" height="1334" fetchpriority="high" alt="Instruktor Rollersów w skoku na rolkach na bulwarze nad rzeką">
+ </picture>
+ <div class="wrap">
+  <div>
+   <h1><span>Nauka jazdy na rolkach</span> <span>w Krakowie</span></h1>
+   <p class="lead">Pokażemy Ci, jak bez obaw jeździć po mieście, skutecznie hamować i skręcać - w ekipie ludzi, którzy mają tę samą zajawkę.</p>
+  </div>
+  <div class="akcja">
+   <a class="btn" href="#zapisy">Zapisz się na zajęcia</a>
+   <span class="gdzie">Klub sportowy - Kraków, Nowa Huta</span>
+  </div>
+ </div>
+ <div class="slad rama" aria-hidden="true"><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i></div>
+ <div class="kick" aria-hidden="true"></div>
+</section>
+
+<section id="onas">
+ <div class="wrap intro">
+  <div class="txt">
+   <h2>Kim są Rollersi?</h2>
+   <p>Rollersem jest zarówno instruktor jazdy na rolkach, jak i zarażony zajawką kursant. To ludzie, którzy rozwijają swoje rolkowe umiejętności i jednocześnie tworzą zgraną ekipę. Przynależność do grupy dodaje skrzydeł, a wzajemne wsparcie motywuje, żeby się nie poddawać.</p>
+   <ul class="trzy">
+    <li><b>Nasze zajęcia</b><span>Nauka jazdy na rolkach to przede wszystkim dobra zabawa w towarzystwie ludzi z tą samą pasją.</span></li>
+    <li><b>Nasz cel</b><span>Pokazać Ci, jak bez obaw jeździć po mieście, hamować, skręcać i nie zatrzymywać się na słupach ani ławkach.</span></li>
+    <li><b>Nasza wizja</b><span>Tylu Rollersów w Krakowie, ilu rowerzystów.</span></li>
+   </ul>
+  </div>
+  <div class="ramka">
+   <img src="img/para-560.webp" srcset="img/para-560.webp 560w, img/para-900.webp 900w" sizes="(max-width:860px) 90vw, 520px" width="560" height="840" loading="lazy" decoding="async" alt="Dwoje instruktorów Rollersów na rolkach w parku o zachodzie słońca">
+   <div class="rama" aria-hidden="true"><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i></div>
+  </div>
+ </div>
+</section>
+
+<section id="poziomy" class="szara">
+ <div class="wrap">
+  <div class="glowa">
+   <div>
+    <h2>Pięć poziomów, jedna ekipa</h2>
+    <p>Każda grupa ma swoją nazwę i jasną listę umiejętności. Sprawdź, co już potrafisz, i dołącz tam, gdzie będziesz się rozwijać najszybciej.</p>
+   </div>
+   <div class="strz"><button type="button" data-t="tor-poz" data-d="-1" aria-label="Poprzednie poziomy">&lt;</button><button type="button" data-t="tor-poz" data-d="1" aria-label="Następne poziomy">&gt;</button></div>
+  </div>
+ </div>
+ <div class="wrap">
+  <div class="tor" id="tor-poz">
+   <article class="poz zero">
+    <div class="rama" aria-hidden="true"><i class="kolko pusty"></i><i class="kolko pusty"></i><i class="kolko pusty"></i><i class="kolko pusty"></i><i class="kolko pusty"></i></div>
+    <span class="kod">Kurs grupowy</span>
+    <h3>Od zera</h3>
+    <p>Jeśli nigdy nie miałaś lub nie miałeś rolek na nogach - zaczynamy razem od pierwszego kroku.</p>
+    <a class="btn" href="#zapisy">Zapisz się na kurs</a>
+   </article>
+   <article class="poz">
+    <div class="rama" aria-label="Poziom 1 z 5"><i class="kolko"></i><i class="kolko pusty"></i><i class="kolko pusty"></i><i class="kolko pusty"></i><i class="kolko pusty"></i></div>
+    <span class="kod">P1 - kurs rolkowy</span>
+    <h3>Beginersi</h3>
+    <span class="lv kurs">początkujący</span>
+    <p class="q">Żeby dołączyć, potrafisz:</p>
+    <ul><li>stabilnie jeździć do przodu</li></ul>
+   </article>
+   <article class="poz">
+    <div class="rama" aria-label="Poziom 2 z 5"><i class="kolko"></i><i class="kolko"></i><i class="kolko pusty"></i><i class="kolko pusty"></i><i class="kolko pusty"></i></div>
+    <span class="kod">P2 - kurs rolkowy</span>
+    <h3>T-stopersi</h3>
+    <span class="lv kurs">podstawowy</span>
+    <p class="q">Żeby dołączyć, potrafisz:</p>
+    <ul><li>hamować T-stopem i skręcać przekładanką (jeszcze niestabilnie)</li><li>jechać z nogami w jednej linii (snake)</li><li>jechać tyłem i beczką tyłem</li></ul>
+   </article>
+   <article class="poz">
+    <div class="rama" aria-label="Poziom 3 z 5"><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i><i class="kolko pusty"></i><i class="kolko pusty"></i></div>
+    <span class="kod">P3 - zajęcia open</span>
+    <h3>Jumpersi</h3>
+    <span class="lv">średni</span>
+    <p class="q">Żeby dołączyć, potrafisz:</p>
+    <ul><li>stabilnie hamować T-stopem na jedną nogę</li><li>przeskoczyć niewielką przeszkodę</li><li>wykonać obrót 180 i zahamować powerslidem z jazdy w tył</li></ul>
+   </article>
+   <article class="poz">
+    <div class="rama" aria-label="Poziom 4 z 5"><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i><i class="kolko pusty"></i></div>
+    <span class="kod">P4 - zajęcia open</span>
+    <h3>Slajdersi</h3>
+    <span class="lv">średnio zaawansowany</span>
+    <p class="q">Żeby dołączyć, potrafisz:</p>
+    <ul><li>pełny powerslide z jazdy przodem</li><li>przeskoczyć przeszkodę 30 cm i wyskoczyć z kickera</li><li>zahamować soul slidem</li></ul>
+   </article>
+   <article class="poz">
+    <div class="rama" aria-label="Poziom 5 z 5"><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i></div>
+    <span class="kod">P5 - zajęcia open</span>
+    <h3>Freeskejtersi</h3>
+    <span class="lv">zaawansowany</span>
+    <p class="q">Żeby dołączyć, potrafisz:</p>
+    <ul><li>hamować soulem i powerslidem z przeskoku</li><li>skręcać przekładanką i nożycowo tyłem w dwie strony</li><li>skakać na 40 cm i więcej bez obaw</li></ul>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section class="zajawka">
+ <div class="wrap">
+  <div>
+   <h2>Freeskate, czyli totalna wolność</h2>
+   <p>To nasza ulubiona dziedzina. Jeździmy dynamicznie, tam gdzie rolki poniosą, skaczemy przez to, co stanie na drodze, i nie boimy się żadnej nawierzchni. Zwiedzamy miasta, szybko przemieszczamy się z punktu A do B i skutecznie hamujemy - a to daje dużo bezpieczeństwa.</p>
+   <p class="wizja">Rollersów w Krakowie tylu, co rowerzystów.<small>Tak brzmi nasza wizja - i po to uczymy.</small></p>
+  </div>
+  <div class="foto">
+   <img src="img/jazda-800.webp" srcset="img/jazda-800.webp 800w, img/jazda-1280.webp 1280w" sizes="(max-width:860px) 92vw, 50vw" width="800" height="533" loading="lazy" decoding="async" alt="Kursantka jedzie na rolkach jesienną alejką w parku">
+  </div>
+ </div>
+</section>
+
+<section id="oferta">
+ <div class="wrap oferta">
+  <div>
+   <h2>Zajęcia dla każdego, kto chce jeździć</h2>
+   <ul class="lista">
+    <li><i class="kolko"></i><div><b>Nauka indywidualna</b><span>Jazda na rolkach z instruktorem, w Twoim tempie.</span></div></li>
+    <li><i class="kolko"></i><div><b>Nauka w grupie</b><span>Kursy od zera i zajęcia open na pięciu poziomach.</span></div></li>
+    <li><i class="kolko"></i><div><b>Trening personalny</b><span>Wzmacniający fizycznie, ukierunkowany na jazdę na rolkach.</span></div></li>
+    <li><i class="kolko"></i><div><b>Obozy rolkowe dla dorosłych</b><span>Kilka dni jazdy w ekipie, poza codziennym grafikiem.</span></div></li>
+    <li><i class="kolko"></i><div><b>Półkolonie dla dzieci</b><span>Rolki na wakacje dla najmłodszych.</span></div></li>
+   </ul>
+   <p class="info">Aktualny grafik zajęć i ceny podajemy przy zapisie - napisz, co Cię interesuje.</p>
+  </div>
+  <div class="kolaz">
+   <img class="a" src="img/grupa-800.webp" srcset="img/grupa-800.webp 800w, img/grupa-1200.webp 1200w" sizes="(max-width:860px) 92vw, 55vw" width="800" height="464" loading="lazy" decoding="async" alt="Grupa Rollersów na zajęciach w hali parkingowej">
+   <img class="b" src="img/rolki-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Rolki freeskate w świetle zachodzącego słońca">
+   <img class="c" src="img/rolki2-600.webp" width="600" height="900" loading="lazy" decoding="async" alt="Rolki na nogach kursanta na chodniku">
+  </div>
+ </div>
+</section>
+
+<section id="instruktorzy" class="szara">
+ <div class="wrap">
+  <h2>Instruktorzy</h2>
+  <div class="instr">
+   <article class="os">
+    <img src="img/julia-480.webp" srcset="img/julia-480.webp 480w, img/julia-720.webp 720w" sizes="240px" width="480" height="720" loading="lazy" decoding="async" alt="Julia Balacha z rolkami w rękach">
+    <div><h3>Julia Balacha</h3><p class="rola">Instruktor PZSW od 2021 roku, fizjoterapeutka</p>
+    <p class="opis">Pierwsze rolki założyła w wieku 7 lat i od początku najbardziej lubiła jeździć przed siebie. Nagłe hamowanie opanowała do perfekcji dzięki przejażdżkom z psem. Długo traktowała rolki jako transport, aż trafiła na ludzi, którzy zarazili ją prawdziwą rolkową zajawką - i teraz przekazuje ją dalej.</p></div>
+   </article>
+   <article class="os">
+    <img src="img/lukasz-480.webp" srcset="img/lukasz-480.webp 480w, img/lukasz-720.webp 720w" sizes="240px" width="480" height="720" loading="lazy" decoding="async" alt="Łukasz Balacha z rolkami w rękach">
+    <div><h3>Łukasz Balacha</h3><p class="rola">Licencjonowany instruktor PZSW od 2019 roku</p>
+    <p class="opis">Rolki od razu stały się jego zajawką numer jeden: wolność, adrenalina, rywalizacja i nieograniczone możliwości rozwoju. Dzięki nim poznał ludzi z całej Polski, przyjaciół, a nawet żonę. Chce, żeby każdy poczuł taką przynależność do rolkowej ekipy - stąd pomysł na Rollersów.</p></div>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section id="galeria" aria-labelledby="gal-h">
+ <div class="wrap"><div class="glowa"><div><h2 id="gal-h">Tak u nas wygląda jazda</h2></div><div class="strz"><button type="button" data-t="tor-gal" data-d="-1" aria-label="Poprzednie zdjęcia">&lt;</button><button type="button" data-t="tor-gal" data-d="1" aria-label="Następne zdjęcia">&gt;</button></div></div></div>
+ <div class="galwrap">
+  <div class="tor gal" id="tor-gal">
+   <button type="button" data-big="img/grupa2-800.webp" aria-label="Powiększ zdjęcie: zajęcia w hali"><img src="img/grupa2-800.webp" width="800" height="450" loading="lazy" decoding="async" alt="Zajęcia Rollersów w hali"></button>
+   <button type="button" data-big="img/para2-600.webp" aria-label="Powiększ zdjęcie: instruktorzy w parku"><img src="img/para2-600.webp" width="600" height="900" loading="lazy" decoding="async" alt="Instruktorzy w parku"></button>
+   <button type="button" data-big="img/hero-m-720.webp" aria-label="Powiększ zdjęcie: skok na bulwarze"><img src="img/hero-m-480.webp" width="480" height="720" loading="lazy" decoding="async" alt="Skok na rolkach na bulwarze"></button>
+   <button type="button" data-big="img/rolki3-800.webp" aria-label="Powiększ zdjęcie: rolki na ścieżce"><img src="img/rolki3-800.webp" width="800" height="599" loading="lazy" decoding="async" alt="Rolki na ścieżce"></button>
+   <button type="button" data-big="img/ekipa1-600.webp" aria-label="Powiększ zdjęcie: Rollerska z rolkami"><img src="img/ekipa1-600.webp" width="600" height="900" loading="lazy" decoding="async" alt="Rollerska z czerwonymi rolkami"></button>
+   <button type="button" data-big="img/parking-800.webp" aria-label="Powiększ zdjęcie: trening w hali"><img src="img/parking-800.webp" width="800" height="450" loading="lazy" decoding="async" alt="Trening w hali parkingowej"></button>
+   <button type="button" data-big="img/ekipa2-600.webp" aria-label="Powiększ zdjęcie: Rollers z rolkami"><img src="img/ekipa2-600.webp" width="600" height="900" loading="lazy" decoding="async" alt="Rollers z rolkami"></button>
+   <button type="button" data-big="img/hero-d-1440.webp" aria-label="Powiększ zdjęcie: jazda na bulwarze"><img src="img/hero-d-960.webp" width="960" height="640" loading="lazy" decoding="async" alt="Jazda na rolkach na bulwarze"></button>
+  </div>
+ </div>
+ <dialog id="lb" aria-label="Powiększone zdjęcie"><form method="dialog"><button class="x">Zamknij</button></form><img id="lb-img" alt=""></dialog>
+</section>
+
+<section id="zapisy" class="szara">
+ <div class="wrap zapisy">
+  <div>
+   <h2>Zapisz się na zajęcia</h2>
+   <p style="color:var(--ink2);font-size:18px;margin-top:18px">Napisz, na jakim jesteś poziomie i co Cię interesuje. Odpiszemy z terminami najbliższych zajęć. Możesz też napisać maila, SMS-a albo zadzwonić.</p>
+   <ul class="kont">
+    <li><i class="kolko"></i><div><small>Telefon</small><a href="tel:+48888999506">888 999 506</a></div></li>
+    <li><i class="kolko"></i><div><small>E-mail</small><a href="mailto:kontakt@rollersi.pl">kontakt@rollersi.pl</a></div></li>
+    <li><i class="kolko"></i><div><small>Aktualności i filmy z zajęć</small><a href="https://www.instagram.com/rollersi.krakow/" rel="noopener">Instagram</a> / <a href="https://www.facebook.com/rollersikrakow" rel="noopener">Facebook</a></div></li>
+   </ul>
+  </div>
+  <form class="form" id="form" novalidate>
+   <div class="row">
+    <div class="f"><label for="f-imie">Imię</label><input id="f-imie" name="imie" autocomplete="given-name" required></div>
+    <div class="f"><label for="f-tel">Telefon lub e-mail</label><input id="f-tel" name="kontakt" autocomplete="email" required></div>
+   </div>
+   <div class="f"><label for="f-poz">Twój poziom</label>
+    <select id="f-poz" name="poziom"><option>Od zera - nigdy nie jeździłam/em</option><option>P1 Beginersi</option><option>P2 T-stopersi</option><option>P3 Jumpersi</option><option>P4 Slajdersi</option><option>P5 Freeskejtersi</option><option>Nauka indywidualna</option><option>Obóz dla dorosłych</option><option>Półkolonie dla dziecka</option></select></div>
+   <div class="f"><label for="f-msg">Wiadomość</label><textarea id="f-msg" name="wiadomosc" placeholder="Np. kiedy możesz jeździć, pytania o sprzęt"></textarea></div>
+   <label class="zgoda"><input type="checkbox" required> Zgadzam się na kontakt w sprawie zajęć.</label>
+   <button class="btn" type="submit">Wyślij zgłoszenie</button>
+   <p class="ok" id="ok" role="status" hidden>To podgląd - formularz zacznie wysyłać zgłoszenia na docelowej stronie.</p>
+  </form>
+ </div>
+</section>
+</main>
+
+<footer class="stopka">
+ <div class="wrap">
+  <div class="pierw">
+   <span class="logo-s"><img src="img/logo-112.webp" width="149" height="40" loading="lazy" alt="Rollersi"></span>
+   <p>Nauka jazdy na rolkach w Krakowie - kursy grupowe, zajęcia indywidualne, obozy i półkolonie.</p>
+  </div>
+  <div><b>Kontakt</b><ul><li><a href="tel:+48888999506">888 999 506</a></li><li><a href="mailto:kontakt@rollersi.pl">kontakt@rollersi.pl</a></li><li><a href="https://www.instagram.com/rollersi.krakow/" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/rollersikrakow" rel="noopener">Facebook</a></li></ul></div>
+  <div><b>Strona</b><ul><li><a href="#onas">O nas</a></li><li><a href="#poziomy">Poziomy grup</a></li><li><a href="#oferta">Zajęcia</a></li><li><a href="#zapisy">Zapisy</a></li></ul></div>
+  <div><b>Dane rejestrowe</b><ul><li>Fundacja Równowaga na Rolkach</li><li>ul. Romana Ciesielskiego 24/204</li><li>31-586 Kraków</li><li>NIP 6751824532</li></ul></div>
+  <div class="dol">
+   <span>&copy; 2026 Rollersi</span>
+   <a class="wylinka-badge" href="https://wylinka.pl/?utm_source=rollersi.pl&amp;utm_medium=stopka&amp;utm_campaign=wykonanie" rel="noopener" title="Strona wykonana przez Wylinka"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" fill="currentColor"><path d="M9.8 22.8l-1.2-7.9 2.2-3.7 15.5 4.6-.5 1.5-7.2 5.5 4.7 15.6 5-15.6 7 0 4.1 12.7-4.2-.9-2.6 1.8-.8-2.2-5.3 15.6-4.3 0 .4 .2-2.1 2.8-1.3-1.1 1.1-1.4-3.1 .2-.1-1.7 2.2-.1-5.7-16.5-4.8 .6-.8 3.1 0 .5-.3 .5 .8 2.2-1.6 .5-.4-1.3-.8 1.6-1.5-.8 .8-1.6-1.4 .6-.6-1.6 2.3-.8 .2-.4 1.3-4.8 5.9-.8-2.4-6.9zM15.2 13.7l-.1-.4-.4 .8-.1 .8 .1 1 .1 .4 .3 .7 .3-.9 .1-.7 0-.8z"/><path class="wy-pod" d="M37.1 49.8l-4.5-13.3 2.6-1.8 4.2 .9 .9 2.8 3-9.7 0-.5 .1-.8 3.2-8.4 .5-1 .6-1 .9-1.1 1.3-1 1.1-.7 1.4-.5 1.4-.3 .7 0 .9 0 1.2 .3 1.4 .6 .8 .5 .7 .7 .6 .7 .5 .9 .3 .9 .1 .9 0 .8-.2 .9-.5 .9-.5 .6-.7 .5-.7 .3-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.6-.1-.6-.3-.7-.4-.5-.4-.4-.5-.3-.6-.3-.7 0-.7 .1-.6 .1-.5 .4-.5 .5-.3 .5-.2 .7-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1-2.1-2.8 .4-.2z"/><path class="wy-old" d="M40.8 50l.4-.2-4.1 0-4.2-12.5 2.5-1.7 4.3 .9 .6 1.9 .6-1.6 0-.3 2.4-7.8 0-.5 .1-.8 3.2-8.4 .4-.8 .6-.9 .9-1.2 .9-.9 1.3-.8 1.4-.6 1.2-.3 1.4-.1 1.3 .1 .6 .2 .8 .3 1.1 .6 .9 .7 .7 .9 .5 .9 .3 .9 .1 1.1-.1 .9-.3 .9-.4 .7-.6 .7-.6 .4-.6 .2-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.5-.1-.6-.2-.6-.3-.5-.4-.5-.5-.3-.6-.3-.7-.1-.6 0-.6 .1-.6 .3-.6 .5-.3 .4-.2 .5-.1 .5-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1zM49.6 17.1l.6 1.7-1.5 1.9 .4 .4 1.8-2.1-.7-2.1zM48.1 28.3l.5 1.8-1.7 1.8 .4 .4 1.9-2-.6-2.2zM37.9 41.7l1.7-1.5-.4-.4-1.7 1.4zM42.6 38.7l-1.5 2.8 1.1 2-1.3 2.6 .5 .2 1.5-2.8-1.1-2 1.4-2.5z"/></svg><span>wykonanie: <b>Wylinka</b></span></a>
+  </div>
+ </div>
+</footer>
+
+<script>
+(function(){
+ var b=document.querySelector('.burger'),m=document.getElementById('menu');
+ b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''});
+ m.addEventListener('click',function(e){if(e.target.tagName==='A'&&m.classList.contains('open')){m.classList.remove('open');b.setAttribute('aria-expanded','false');document.body.style.overflow=''}});
+ document.querySelectorAll('.strz button').forEach(function(x){x.addEventListener('click',function(){var t=document.getElementById(x.dataset.t),c=t.firstElementChild;t.scrollBy({left:(c.offsetWidth+24)*x.dataset.d,behavior:'smooth'})})});
+ document.querySelectorAll('.tor').forEach(function(t){var d=false,sx=0,sl=0,mv=0;
+  t.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;d=true;mv=0;sx=e.clientX;sl=t.scrollLeft});
+  window.addEventListener('pointermove',function(e){if(!d)return;var dx=e.clientX-sx;if(Math.abs(dx)>4){t.classList.add('drag')}mv=Math.max(mv,Math.abs(dx));t.scrollLeft=sl-dx});
+  window.addEventListener('pointerup',function(){if(!d)return;d=false;t.classList.remove('drag')});
+  t.addEventListener('click',function(e){if(mv>6){e.preventDefault();e.stopPropagation();mv=0}},true);
+  t.addEventListener('dragstart',function(e){e.preventDefault()});
+ });
+ var lb=document.getElementById('lb'),li=document.getElementById('lb-img');
+ document.querySelectorAll('[data-big]').forEach(function(x){x.addEventListener('click',function(){li.src=x.dataset.big;li.alt=x.querySelector('img').alt;lb.showModal()})});
+ lb.addEventListener('click',function(e){if(e.target===lb)lb.close()});
+ document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('ok').hidden=false});
+})();
+</script>
+</body>
+</html>
