@@ -15,9 +15,9 @@
 <link rel="preload" as="image" media="(max-width:700px)" imagesrcset="img/hero-m-480.webp 480w, img/hero-m-720.webp 720w, img/hero-m-960.webp 960w" imagesizes="100vw" fetchpriority="high">
 <link rel="preload" as="image" media="(min-width:701px)" imagesrcset="img/hero-d-960.webp 960w, img/hero-d-1440.webp 1440w, img/hero-d-2000.webp 2000w" imagesizes="100vw" fetchpriority="high">
 <style>
-@font-face{font-family:"Saira";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/saira-400.woff2) format("woff2")}
+@font-face{font-family:"Saira";font-weight:400;font-style:normal;font-display:optional;src:url(fonts/saira-400.woff2) format("woff2")}
 @font-face{font-family:"Saira";font-weight:600;font-style:normal;font-display:swap;src:url(fonts/saira-600.woff2) format("woff2")}
-@font-face{font-family:"Saira Head";font-weight:700;font-style:normal;font-display:swap;src:url(fonts/saira-700.woff2) format("woff2")}
+@font-face{font-family:"Saira Head";font-weight:700;font-style:normal;font-display:optional;src:url(fonts/saira-700.woff2) format("woff2")}
 :root{--red:#E01820;--red-d:#B5121A;--ink:#111317;--ink2:#3A3F47;--grey:#EEF1F4;--line:#D9DEE4;--blue:#204088;--w:1320px;--g:clamp(16px,4vw,48px);--sh:-6px 6px 0 var(--ink)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
@@ -134,7 +134,7 @@ section{padding:clamp(64px,8vw,120px) 0}
 .zajawka h2{margin-bottom:22px}
 .zajawka p{font-size:19px;max-width:32em}
 .zajawka .wizja{margin-top:34px;padding-top:26px;border-top:2px solid rgba(255,255,255,.5);font-family:"Saira Head";font-size:clamp(24px,2.4vw,32px);line-height:1.2;max-width:20em}
-.zajawka .wizja small{display:block;font:400 16px/1.5 "Saira";margin-top:8px;opacity:.95}
+.zajawka .wizja small{display:block;font:400 16px/1.5 "Saira";margin-top:8px}
 .zajawka .foto img{width:100%;border-radius:3px;box-shadow:-14px 14px 0 var(--ink)}
 @media (max-width:860px){.zajawka .wrap{grid-template-columns:1fr}.zajawka .foto{margin-left:14px}}
 /* oferta */
@@ -155,7 +155,7 @@ section{padding:clamp(64px,8vw,120px) 0}
 .os{display:grid;grid-template-columns:minmax(150px,240px) 1fr;gap:28px;align-items:start}
 .os img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:3px;box-shadow:-8px 8px 0 var(--ink)}
 .os h3{margin-bottom:4px}
-.os .rola{color:var(--red);font-weight:600;margin-bottom:14px;font-size:16px}
+.os .rola{color:var(--red-d);font-weight:600;margin-bottom:14px;font-size:16px}
 .os p{color:var(--ink2);font-size:16px}
 @media (max-width:1100px){.instr{grid-template-columns:1fr}}
 @media (max-width:560px){.os{grid-template-columns:1fr;gap:20px}.os img{max-width:200px;margin-left:8px}}
@@ -220,7 +220,7 @@ dialog .x{background:#fff;border:0;font:600 16px "Saira";padding:10px 16px;margi
 <a class="skip" href="#tresc">Przejdź do treści</a>
 <header class="top">
  <div class="wrap">
-  <a class="logo" href="#" aria-label="Rollersi - strona główna"><img src="img/logo-112.webp" srcset="img/logo-56.webp 1x, img/logo-112.webp 2x" width="164" height="44" alt="Rollersi"></a>
+  <a class="logo" href="#" aria-label="Rollersi - strona główna"><img src="img/logo-84.webp" srcset="img/logo-56.webp 1x, img/logo-84.webp 2x" width="164" height="44" alt="Rollersi"></a>
   <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
   <nav class="menu" id="menu" aria-label="Menu główne">
    <a href="#" class="on" aria-current="page">Start</a>
@@ -267,7 +267,7 @@ dialog .x{background:#fff;border:0;font:600 16px "Saira";padding:10px 16px;margi
    </ul>
   </div>
   <div class="ramka">
-   <img src="img/para-560.webp" srcset="img/para-560.webp 560w, img/para-900.webp 900w" sizes="(max-width:860px) 90vw, 520px" width="560" height="840" loading="lazy" decoding="async" alt="Dwoje instruktorów Rollersów na rolkach w parku o zachodzie słońca">
+   <img src="img/para-560.webp" srcset="img/para-400.webp 400w, img/para-560.webp 560w, img/para-900.webp 900w" sizes="(max-width:860px) 72vw, 520px" width="560" height="840" loading="lazy" decoding="async" alt="Dwoje instruktorów Rollersów na rolkach w parku o zachodzie słońca">
    <div class="rama" aria-hidden="true"><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i></div>
   </div>
  </div>
@@ -293,7 +293,7 @@ dialog .x{background:#fff;border:0;font:600 16px "Saira";padding:10px 16px;margi
     <a class="btn" href="#zapisy">Zapisz się na kurs</a>
    </article>
    <article class="poz">
-    <div class="rama" aria-label="Poziom 1 z 5"><i class="kolko"></i><i class="kolko pusty"></i><i class="kolko pusty"></i><i class="kolko pusty"></i><i class="kolko pusty"></i></div>
+    <div class="rama" role="img" aria-label="Poziom 1 z 5"><i class="kolko"></i><i class="kolko pusty"></i><i class="kolko pusty"></i><i class="kolko pusty"></i><i class="kolko pusty"></i></div>
     <span class="kod">P1 - kurs rolkowy</span>
     <h3>Beginersi</h3>
     <span class="lv kurs">początkujący</span>
@@ -301,7 +301,7 @@ dialog .x{background:#fff;border:0;font:600 16px "Saira";padding:10px 16px;margi
     <ul><li>stabilnie jeździć do przodu</li></ul>
    </article>
    <article class="poz">
-    <div class="rama" aria-label="Poziom 2 z 5"><i class="kolko"></i><i class="kolko"></i><i class="kolko pusty"></i><i class="kolko pusty"></i><i class="kolko pusty"></i></div>
+    <div class="rama" role="img" aria-label="Poziom 2 z 5"><i class="kolko"></i><i class="kolko"></i><i class="kolko pusty"></i><i class="kolko pusty"></i><i class="kolko pusty"></i></div>
     <span class="kod">P2 - kurs rolkowy</span>
     <h3>T-stopersi</h3>
     <span class="lv kurs">podstawowy</span>
@@ -309,7 +309,7 @@ dialog .x{background:#fff;border:0;font:600 16px "Saira";padding:10px 16px;margi
     <ul><li>hamować T-stopem i skręcać przekładanką (jeszcze niestabilnie)</li><li>jechać z nogami w jednej linii (snake)</li><li>jechać tyłem i beczką tyłem</li></ul>
    </article>
    <article class="poz">
-    <div class="rama" aria-label="Poziom 3 z 5"><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i><i class="kolko pusty"></i><i class="kolko pusty"></i></div>
+    <div class="rama" role="img" aria-label="Poziom 3 z 5"><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i><i class="kolko pusty"></i><i class="kolko pusty"></i></div>
     <span class="kod">P3 - zajęcia open</span>
     <h3>Jumpersi</h3>
     <span class="lv">średni</span>
@@ -317,7 +317,7 @@ dialog .x{background:#fff;border:0;font:600 16px "Saira";padding:10px 16px;margi
     <ul><li>stabilnie hamować T-stopem na jedną nogę</li><li>przeskoczyć niewielką przeszkodę</li><li>wykonać obrót 180 i zahamować powerslidem z jazdy w tył</li></ul>
    </article>
    <article class="poz">
-    <div class="rama" aria-label="Poziom 4 z 5"><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i><i class="kolko pusty"></i></div>
+    <div class="rama" role="img" aria-label="Poziom 4 z 5"><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i><i class="kolko pusty"></i></div>
     <span class="kod">P4 - zajęcia open</span>
     <h3>Slajdersi</h3>
     <span class="lv">średnio zaawansowany</span>
@@ -325,7 +325,7 @@ dialog .x{background:#fff;border:0;font:600 16px "Saira";padding:10px 16px;margi
     <ul><li>pełny powerslide z jazdy przodem</li><li>przeskoczyć przeszkodę 30 cm i wyskoczyć z kickera</li><li>zahamować soul slidem</li></ul>
    </article>
    <article class="poz">
-    <div class="rama" aria-label="Poziom 5 z 5"><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i></div>
+    <div class="rama" role="img" aria-label="Poziom 5 z 5"><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i><i class="kolko"></i></div>
     <span class="kod">P5 - zajęcia open</span>
     <h3>Freeskejtersi</h3>
     <span class="lv">zaawansowany</span>
@@ -344,7 +344,7 @@ dialog .x{background:#fff;border:0;font:600 16px "Saira";padding:10px 16px;margi
    <p class="wizja">Rollersów w Krakowie tylu, co rowerzystów.<small>Tak brzmi nasza wizja - i po to uczymy.</small></p>
   </div>
   <div class="foto">
-   <img src="img/jazda-800.webp" srcset="img/jazda-800.webp 800w, img/jazda-1280.webp 1280w" sizes="(max-width:860px) 92vw, 50vw" width="800" height="533" loading="lazy" decoding="async" alt="Kursantka jedzie na rolkach jesienną alejką w parku">
+   <img src="img/jazda-800.webp" srcset="img/jazda-560.webp 560w, img/jazda-800.webp 800w, img/jazda-1280.webp 1280w" sizes="(max-width:860px) 88vw, 50vw" width="800" height="533" loading="lazy" decoding="async" alt="Kursantka jedzie na rolkach jesienną alejką w parku">
   </div>
  </div>
 </section>
